@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
+    <link href="src/output.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="p-4 bg-white text-gray-800">
+        <div class="container flex flex-wrap justify-evenly md:justify-between min-h-16 mx-auto">
+            <ul class="items-stretch hidden space-x-3 lg:flex">
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="#"
+                        class="flex items-center px-4 -mb-1 border-b-2 text-green-600 border-green-600">Link</a>
+                </li>
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 border-b-2">Link</a>
+                </li>
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 border-b-2">Link</a>
+                </li>
+            </ul>
+            <a rel="noopener noreferrer" href="#" aria-label="Back to homepage"
+                class="flex items-center p-2 text-2xl text-green-700">
+                Online Store
+            </a>
+            <div class="flex items-center space-x-3">
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <button type="submit" title="Search" class="p-1 focus:outline-none focus:ring">
+                            <svg fill="currentColor" viewBox="0 0 512 512" class="w-4 h-4 text-gray-800">
+                                <path
+                                    d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z">
+                                </path>
+                            </svg>
+                        </button>
+                    </span>
+                    <input id="searchInp" oninput="search()" type="search" name="Search" placeholder="Search..."
+                        class="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-100 text-gray-800 focus:bg-gray-50" />
+                </div>
+                <button onclick="handleCart()" type="button"
+                    class="px-6 py-2  font-semibold rounded bg-green-600 text-gray-50">Cart</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="py-6 sm:py-12 text-gray-800 bg-gray-100">
+            <div class="container p-6 mx-auto space-y-8">
+                <div id="cards" class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+                </div>
+            </div>
+        </section>
+        <section id="cartList"
+            class="fixed top-0 right-0 h-full overflow-y-scroll hidden flex-col max-w-xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">
+            <h2 class="text-xl font-semibold">Your cart</h2>
+            <ul id="addedList" class="flex flex-col divide-y divide-gray-300">
+            </ul>
+            <div class="space-y-1 text-right">
+                <p>Total amount:
+                    <span class="font-semibold"><span id="totalPrice">0 €</span></span>
+                </p>
+                <p class="text-sm text-gray-600">Not including taxes and shipping costs</p>
+                <button onclick="handleCart()" type="button" class="px-6 py-2 border rounded-md border-green-600">Back
+                </button>
+            </div>
+        </section>
+    </main>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
